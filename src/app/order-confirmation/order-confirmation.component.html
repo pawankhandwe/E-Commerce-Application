@@ -1,0 +1,62 @@
+<div>
+  <ng-container *ngIf="cartItems.length > 0; else noProducts">
+   <h3>Shipping Information</h3>
+
+  <form [formGroup]="shippingForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="fullName">Full Name</label>
+    <input type="text" formControlName="fullName" id="fullName">
+    <!-- Error handling for Full Name -->
+    <div *ngIf="shippingForm?.get('fullName')?.hasError('required') && shippingForm?.get('fullName')?.touched">
+      <p style="color: red;">Full Name is required.</p>
+    </div>
+  </div>
+
+  <!-- Add more form fields for shipping information (address, city, etc.) -->
+
+  <h3>Payment Information</h3>
+  <div class="form-group">
+    <label for="creditCardNumber">Credit Card Number</label>
+    <input type="text" formControlName="creditCardNumber" id="creditCardNumber">
+    <div *ngIf="shippingForm.get('creditCardNumber')?.hasError('required') && shippingForm.get('creditCardNumber')?.touched">
+      <p style="color: red;">Credit Card Number is required.</p>
+    </div>
+    <div *ngIf="shippingForm.get('creditCardNumber')?.hasError('pattern') && shippingForm.get('creditCardNumber')?.touched">
+      <p style="color: red;">Please enter a valid Card Number.</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="expiryDate">Expiration Date</label>
+    <input type="text" formControlName="expiryDate" id="expiryDate">
+    <!-- Error handling for Expiration Date -->
+    <div *ngIf="shippingForm.get('expiryDate')?.hasError('required') && shippingForm.get('expiryDate')?.touched">
+      <p style="color: red;">Expiration Date is required.</p>
+    </div>
+    <div *ngIf="shippingForm.get('expiryDate')?.hasError('pattern') && shippingForm.get('expiryDate')?.touched">
+      <p style="color: red;">Please enter a valid expiration date (MM/YY).</p>
+    </div>
+  </div>
+  
+  
+  <div class="form-group">
+    <label for="cvv">CVV (Card Verification Value)</label>
+    <input type="text" formControlName="cvv" id="cvv">
+    <div *ngIf="shippingForm.get('cvv')?.hasError('required') && shippingForm.get('cvv')?.touched">
+      <p style="color: red;">CVV is required.</p>
+    </div>
+    <div *ngIf="shippingForm.get('cvv')?.hasError('pattern') && shippingForm.get('cvv')?.touched">
+      <p style="color: red;">Please enter a valid CVV (3 digits).</p>
+    </div>
+
+  </div>
+  <button type="submit" [disabled]="!shippingForm.valid">Place Order</button>
+
+</form>
+
+</ng-container>
+
+ <ng-template #noProducts>
+  <h1 class="empty-cart-message">No products available Here!</h1>
+</ng-template>
+
+</div>

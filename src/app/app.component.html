@@ -1,0 +1,25 @@
+<nav>
+  <ul class="horizone">
+    <!-- <li><img src="https://png.pngtree.com/template/20190927/ourmid/pngtree-e-commerce-logo-image_311732.jpg" style="width: 100px; height: 30px;"></li> -->
+    <li class="heading" style="color:burlywood; font-family:Verdana, Geneva, Tahoma, sans-serif, Times, serif; font-weight: 500;">E-COMMERCE APPLICATION</li>
+    <li><a routerLink="/home" routerLinkActive="active">Welcome</a></li>
+    <li><a routerLink="/products" routerLinkActive="active">DashBoard</a></li>
+    <!-- <li><a routerLink="/cart" routerLinkActive="active"><img style="width: 60px;height: 60px;" src="https://static.vecteezy.com/system/resources/thumbnails/009/157/893/small/shopping-cart-set-of-shopping-cart-icon-on-white-background-shopping-cart-icon-shopping-cart-design-shopping-cart-icon-sign-shopping-cart-icon-isolated-shopping-cart-symbol-free-vector.jpg"></a></li> -->
+    <li><a routerLink="/cart" routerLinkActive="active">Cart</a></li>
+ 
+    <li><a routerLink="/checkout" routerLinkActive="active">Checkout</a></li>
+    <li><a routerLink="/order-confirmation" routerLinkActive="active">Orders</a></li>
+    <!-- Conditionally display links based on user authentication status -->
+
+
+    <ng-container *ngIf="userService.isLoggedIn(); else loggedOutLinks">
+      <li><a routerLink="/logout" routerLinkActive="active">Logout</a></li>
+    </ng-container>
+    <ng-template #loggedOutLinks>
+      <li><a routerLink="/register" routerLinkActive="active">Register</a></li>
+      <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+    </ng-template>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>

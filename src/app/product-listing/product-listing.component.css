@@ -1,0 +1,129 @@
+/* product-listing.component.css */
+.product-listing-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .search-input {
+    width: 50%; /* Decrease the width */
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    transition: border-color 0.2s ease-in-out;
+  }
+  /* Style for the container of the form */
+.filter-form {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust the gap between form elements */
+}
+
+/* Style for the search input */
+.search-input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style for the category select */
+.filter-category {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: border-color 0.2s ease-in-out;
+}
+
+/* Style for the sortBy select */
+.filter-sort {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: border-color 0.2s ease-in-out;
+}
+
+/* Optional: Style for the select options */
+.filter-category option,
+.filter-sort option {
+  background-color: #fff;
+  color: #333;
+  
+}
+
+/* Optional: Style for the selected option */
+.filter-category option:checked,
+.filter-sort option:checked {
+  background-color: #007bff; /* Change to your desired selected color */
+  color: #fff;
+}
+
+/* Optional: Style for the hover state of options */
+.filter-category option:hover,
+.filter-sort option:hover {
+  background-color: #f0f0f0; /* Change to your desired hover color */
+}
+
+  
+  .search-input:focus {
+    outline: none;
+    border-color: #ff6347; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(255, 99, 71, 0.5); /* Add a subtle box shadow on focus */
+  }
+  
+  
+  .product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .product-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    width: 250px;
+  }
+  
+  .product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-image {
+    max-width: 50%;
+    height: auto;
+  }
+  
+  .product-title {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .product-price {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .add-to-cart-button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .add-to-cart-button:hover {
+    background-color: #ff3c29;
+  }
+  

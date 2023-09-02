@@ -1,0 +1,23 @@
+
+<h2>Checkout</h2>
+
+<form (ngSubmit)="placeOrder()" #checkoutForm="ngForm">
+<div *ngIf="cartItems.length > 0">
+  <h3>Your Checked Out Items:</h3>
+  <div *ngFor="let item of cartItems">
+    <img [src]="item.product.image" alt="Product Image" class="product-image">
+   
+    <p>{{ item.product.title }} - Quantity: {{ item.quantity }} - Price: ${{ item.product.price }}</p>
+  </div>
+  <p>Total Price: ${{ calculateTotalPrice() }}</p>
+  
+</div>
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required [(ngModel)]="shippingDetails.name">
+  <br>
+  <label for="address">Address:</label>
+  <input type="text" id="address" name="address" required [(ngModel)]="shippingDetails.address">
+  <br>
+  <button type="submit">Place Order</button>
+</form>

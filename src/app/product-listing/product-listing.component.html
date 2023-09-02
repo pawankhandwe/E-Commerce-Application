@@ -1,0 +1,30 @@
+<div class="product-listing-container">
+  <!-- Reactive Form for Filtering and Sorting -->
+  <form [formGroup]="productFilterForm" class="filter-form">
+    <input formControlName="searchQuery" placeholder="Search products" class="search-input" (input)="OnSearch()">
+   
+    <select formControlName="category" class="filter-category" 
+    (change)="onFormChange()">
+      <option value="">All Categories</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+    <select formControlName="sortBy" class="filter-sort" 
+    (change)="onFormChange()">
+      <option value="">Sort By Price</option>
+      <option value="priceAsc">Price (Low to High)</option>
+      <option value="priceDesc">Price (High to Low)</option>
+    </select>
+  </form>
+
+  <div class="product-container">
+    <div *ngFor="let product of filteredProducts" class="product-card">
+      <img [src]="product.image" [alt]="product.title" class="product-image">
+      
+      <h3 class="product-title">{{ product.title }}</h3>
+      <p class="product-price">Price: {{ product.price }}</p>
+      <button (click)="addToCart(product)" class="add-to-cart-button">Add to Cart</button>
+      <br><br>
+      <button (click)="navigateToProductDetails(product.id)" class="add-to-cart-button" style="background-color: darkslategrey;">Product Details</button>
+    </div>
+  </div>
+</div>

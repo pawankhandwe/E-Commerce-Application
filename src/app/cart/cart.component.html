@@ -1,0 +1,21 @@
+<!-- cart.component.html -->
+<div class="cart-container">
+  <h3 class="cart-heading">Cart Contents</h3>
+  <div class="cart-items-container">
+    <ng-container *ngIf="cartItems.length > 0; else noProducts">
+      
+      <div *ngFor="let item of cartItems" class="cart-item">
+        <img [src]="item.product.image" alt="Product Image" class="product-image">
+        <h3 class="product-title">{{ item.product.title }}</h3>
+        <p class="product-price">Price: ${{ item.product.price }}</p>
+        <button (click)="removeFromCart(item.product)" class="remove-button">Remove</button>
+        <button (click)="NavigateToCheckout(item.product.id)" class="remove-button" style="margin-left: 10px;">Checkout</button>
+  
+      </div>
+    </ng-container>
+  </div>
+  <ng-template #noProducts>
+    <h1 class="empty-cart-message">No products available in cart!</h1>
+  </ng-template>
+  <h1 class="total-price-corner" *ngIf="cartItems.length > 0">Total Price: ${{ calculateTotalPrice() }}</h1>
+</div>
